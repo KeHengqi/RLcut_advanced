@@ -3,10 +3,25 @@ import os
 import re
 Strategy = ["in-going", "degree", "DC_speed", "DC_price", "mirror"]
 # A complite graph file should be: ./dataset + Graph_file
-Graph_file = ["debug/debug.txt", "facebook/facebook_combined.txt", "gnutella/p2p-Gnutella09.txt", "googleweb/web-Google.txt", "Wiki-Vote/Wiki-Vote.txt"]
-Graph_name = ["debug", "facebook", "gnutella", "google", "wiki"]
+# this is for tencent server
+# Graph_file = ["debug/debug.txt", "facebook/facebook_combined.txt", "gnutella/p2p-Gnutella09.txt", "googleweb/web-Google.txt", "Wiki-Vote/Wiki-Vote.txt"]
+
+# this is for school server
+# on school server, the graph file should be at /home/local_graph
+Graph_file = ["debug.txt", "it", "orkut", "googleweb/web-Google.txt", "twitter", "livejournal", "soc-LiveJournal1.txt", "uk"]
+
+# this is for tencent server
+# Graph_name = ["debug", "facebook", "gnutella", "google", "wiki"]
+
+# this is for school server
+Graph_name = ["debug", "it", "orkut", "google", "twitter", "livejournal", "soc-LiveJournal1", "uk"]
+
 # A complite network file should be: ./network + Network_file
-Network_file = ["debug.txt", "amazon", "azure",  "Network_cost.txt", "Network_high.txt", "Network_homo.txt", "Network_medium.txt", "Network.txt"]
+# this is for tencent server
+# Network_file = ["debug.txt", "amazon", "azure",  "Network_cost.txt", "Network_high.txt", "Network_homo.txt", "Network_medium.txt", "Network.txt"]
+
+# this is for school server
+Network_file = ["debug.txt", "amazon", "amazon_high", "amazon_low", "amazon_medium", "azure",  "Network_cost.txt", "Network_high.txt", "Network_low.txt", "Network_medium.txt", "Network.txt"]
 # print(DC_number)
 
 
@@ -20,19 +35,30 @@ default_sentence += TUI_OR_SCRIPT + Application
 
 print("Welcome to the graph seperation execution script")
 print("First choose the graph you want to test: ")
-print("1. facebook\n2. gnutella\n3. google\n4. wiki")
+
+for counter in range(1, len(Graph_name)):
+    print(str(counter) + ". " + Graph_name[counter])
+
+# print("1. facebook\n2. gnutella\n3. google\n4. wiki")
 while True:
     graph_choice = int(input("Now choose one: "))
-    if graph_choice < 0 or graph_choice > 4:
+    if graph_choice < 0 or graph_choice >= len(Graph_name):
         print("Illegal input! Please input again!")
         print("----------------------------------")
     else:
-        break 
-graph_data = "./dataset/" + Graph_file[graph_choice]
+        break
+# for tencent server
+# graph_data = "./dataset/" + Graph_file[graph_choice]
+
+# for school server
+graph_data = "/home/local_graph/" + Graph_file[graph_choice]
 default_sentence += graph_data + " "
 
 print("Now choose the network you want to simulate")
-print("1. amazon\n2. azure\n3. Network_cost\n4. Network_high\n5. Network_homo\n6. Network_medium\n7. Network")
+for counter in range(1, len(Network_file)):
+    print(str(counter) + ". " + Network_file[counter])
+
+# print("1. amazon\n2. azure\n3. Network_cost\n4. Network_high\n5. Network_homo\n6. Network_medium\n7. Network")
 while True:
     network_choice = int(input("Now choose one: "))
     if network_choice < 0 or network_choice > 7:
@@ -110,7 +136,7 @@ for counter in range(1, 11):
             character += "n"
         # print(character_para)
         running_sentence = default_sentence + output_file + " " + str(randpro) + " " + trained_file + " " + str(bsp) + " " + str(batchsize) + " " + str(left_time) + " " + str(n) + " " + str(ginger_cost) + " "
-        running_sentence += character + " &"
+        running_sentence += character
         os.system(running_sentence)
 
     output_file_average = output_ratio_folder + Graph_name[graph_choice] + "-" + str(ratio) + "-average.csv"
