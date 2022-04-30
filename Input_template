@@ -1,0 +1,2 @@
+in-going:
+./main pagerank "./dataset/Wiki-Vote/Wiki-Vote.txt" ./network/amazon 8 0.4 100 48 output/wiki 1 train/wiki  1 8 1000000000 1 0 in-going

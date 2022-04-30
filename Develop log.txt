@@ -1,0 +1,44 @@
+April 14th
+Showing the character of nodes in the training phrase
+character:
+1. Mirror or host
+2. Location
+3. Degree of the nodes
+4. Left time
+
+April 15th
+
+April 21st
+four characters:
+1. in-going degree of the point
+2. mirror number of nodes
+3. price of the DC where the host of a node locate
+4. speed of the DC where the host of a node locate
+
+evaluate method:
+Changing the way of node election, then running the code to get the result, finally comparing the time cost and effect with the original result.
+
+April 22ed
+Using heapify -> quick sort
+Using degree -> in-going degree ?
+
+April 23rd
+not working!
+
+April 25th
+Re-defined the class 'Pthread_args'. Now the class can get the percentage, threshold number and testing character
+Using origin_lab drawing the graph 
+Running out the Wiki graph result 
+Having done the ratio from 0.1 to 1.0
+
+TODO: Need to re-format the output file format, making it compensates to csv file
+
+
+April 26th 
+Running the code about degree and in-going degree 
+Draw the graph about time_cost of degree and in-going degree, and price cost about in-going degree 
+
+April 27th
+TODO: recode the input format
+
+
